@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUIZ DA EBD Fiel | Josué: Servindo com Fidelidade</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ===== VARIÁVEIS E RESET ===== */
+        :root {
+            --primary: #4361ee;
+            --primary-dark: #3a56d4;
+            --secondary: #7209b7;
+            --accent: #f72585;
+            --success: #4cc9f0;
+            --warning: #f8961e;
+            --danger: #f94144;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --text: #343a40;
+            --gray: #6c757d;
+            --shadow: 0 10px 30px rgba(0,0,0,0.1);
+            --shadow-lg: 0 15px 50px rgba(0,0,0,0.15);
+            --gradient: linear-gradient(135deg, #4361ee 0%, #7209b7 100%);
+            --gradient-light: linear-gradient(135deg, #4cc9f0 0%, #4361ee 100%);
+            --instagram: #E1306C;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            line-height: 1.6;
+        }
+
+        /* ===== CONTAINER PRINCIPAL ===== */
+        .container {
+            max-width: 100%;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            margin: 10px 0;
+            position: relative;
+        }
+
+        /* ===== HEADER MODERNO ===== */
+        .modern-header {
+            background: var(--gradient);
+            color: white;
+            padding: 25px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PHBhdGggZD0iTTIxLDMwIEMyMSwzMCA0MCwzMCA1MCw0MCBDNjAsMzAgNzksMzAgNzksMzAgQzc5LDMwIDg1LDM1IDg1LDQwIEM4NSw0NSA3OSw1MCA3OSw1MCBDNzksNTAgNjAsNTAgNTAsNjAgQzQwLDUwIDIxLDUwIDIxLDUwIEMyMSw1MCAxNSw0NSAxNSw0MCBDMTUsMzUgMjEsMzAgMjEsMzAgWiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiLz48L3N2Zz4=');
+            background-size: 150px;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            overflow: hidden;
+            border-radius: 15px;
+            background: white;
+            padding: 10px;
+        }
+
+        .logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            text-align: center;
+        }
+
+        .logo-text h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .logo-text .subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+            font-weight: 400;
+            margin-top: 5px;
+        }
+
+        .welcome-card {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 16px;
+            margin: 20px 0;
+            border: 1px solid rgba(255,255,255,0.2);
+            text-align: left;
+        }
+
+        .welcome-card h2 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .welcome-card p {
+            font-size: 1rem;
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+
+        .cta-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .start-btn {
+            padding: 16px 35px;
+            border: none;
+            border-radius: 50px;
+            background: var(--accent);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 8px 20px rgba(248, 37, 133, 0.4);
+            width: 100%;
+            max-width: 280px;
+            justify-content: center;
+        }
+
+        .start-btn:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 12px 25px rgba(248, 37, 133, 0.5);
+            background: #ff2d95;
+        }
+
+        .features {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 20px;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,255,255,0.1);
+            padding: 12px 15px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(5px);
+            justify-content: center;
+        }
+
+        /* ===== SEÇÃO DE CONTEÚDO ===== */
+        .content-section {
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .about-card, .details-card {
+            background: var(--light);
+            border-radius: 16px;
+            padding: 25px 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-content {
+            font-size: 0.95rem;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .card-content ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .card-content li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .card-content li i {
+            color: var(--primary);
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        .highlight {
+            background: var(--gradient-light);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
+
+        /* ===== SEÇÃO DO QUIZ ===== */
+        .quiz-section {
+            display: none;
+            padding: 20px 15px;
+        }
+
+        .progress-container {
+            padding: 0 15px;
+            margin-bottom: 20px;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .progress-text {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress {
+            height: 100%;
+            background: var(--gradient);
+            border-radius: 10px;
+            transition: width 0.5s ease;
+            position: relative;
+        }
+
+        .progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-image: linear-gradient(
+                -45deg, 
+                rgba(255, 255, 255, 0.2) 25%, 
+                transparent 25%, 
+                transparent 50%, 
+                rgba(255, 255, 255, 0.2) 50%, 
+                rgba(255, 255, 255, 0.2) 75%, 
+                transparent 75%, 
+                transparent
+            );
+            background-size: 20px 20px;
+            animation: move 1s linear infinite;
+        }
+
+        @keyframes move {
+            0% { background-position: 0 0; }
+            100% { background-position: 20px 0; }
+        }
+
+        .question {
+            margin-bottom: 25px;
+            padding: 20px;
+            border-radius: 16px;
+            background: white;
+            box-shadow: var(--shadow);
+            border-left: 5px solid var(--primary);
+        }
+
+        .question-header {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .question-difficulty {
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: white;
+            align-self: flex-start;
+        }
+
+        .difficulty-easy { background: var(--success); }
+        .difficulty-medium { background: var(--warning); }
+        .difficulty-hard { background: var(--danger); }
+
+        .question-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary);
+            line-height: 1.4;
+        }
+
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        .option {
+            padding: 16px 15px;
+            background: var(--light);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .option:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-color: var(--primary);
+        }
+
+        .option.selected.correct {
+            background: var(--success);
+            color: white;
+            border-color: var(--success);
+            transform: translateY(-2px);
+        }
+
+        .option.selected.incorrect {
+            background: var(--danger);
+            color: white;
+            border-color: var(--danger);
+            transform: translateY(-2px);
+        }
+
+        .option.correct-answer {
+            background: var(--success);
+            color: white;
+            border-color: var(--success);
+            animation: pulse 0.6s ease;
+        }
+
+        .option-letter {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            margin-right: 12px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .option.selected .option-letter,
+        .option.correct-answer .option-letter {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .feedback-icon {
+            margin-left: auto;
+            font-size: 1.1rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .option.selected.correct .feedback-icon,
+        .option.correct-answer .feedback-icon {
+            opacity: 1;
+        }
+
+        .option.selected.incorrect .feedback-icon {
+            opacity: 1;
+        }
+
+        .option.locked {
+            cursor: not-allowed;
+        }
+
+        .option.locked:hover {
+            transform: none;
+            box-shadow: none;
+            border-color: transparent;
+        }
+
+        /* ===== NAVEGAÇÃO ===== */
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 25px;
+            gap: 10px;
+        }
+
+        button {
+            padding: 14px 20px;
+            border: none;
+            border-radius: 50px;
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            flex: 1;
+            justify-content: center;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        button:disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .btn-next {
+            background: var(--secondary);
+        }
+
+        /* ===== RESULTADOS ===== */
+        .results {
+            text-align: center;
+            padding: 30px 20px;
+            display: none;
+        }
+
+        .results-header {
+            margin-bottom: 25px;
+        }
+
+        .score {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin: 15px 0;
+        }
+
+        .performance {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .performance-item {
+            text-align: center;
+            padding: 20px;
+            border-radius: 16px;
+            background: var(--light);
+            box-shadow: var(--shadow);
+        }
+
+        .performance-value {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 10px 0;
+        }
+
+        .performance-easy { color: var(--success); }
+        .performance-medium { color: var(--warning); }
+        .performance-hard { color: var(--danger); }
+
+        .message {
+            font-size: 1.1rem;
+            margin: 25px 0;
+            padding: 20px;
+            border-radius: 16px;
+            background: var(--light);
+            box-shadow: var(--shadow);
+            line-height: 1.5;
+        }
+
+        /* ===== INFORMAÇÕES DA IGREJA E INSTAGRAM ===== */
+        .church-info {
+            text-align: center;
+            padding: 20px;
+            background: var(--light);
+            border-top: 1px solid #dee2e6;
+        }
+
+        .church-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .church-location {
+            color: var(--text);
+            opacity: 0.8;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .instagram-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .instagram-text {
+            font-size: 0.9rem;
+            color: var(--text);
+        }
+
+        .instagram-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: var(--instagram);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(225, 48, 108, 0.3);
+        }
+
+        .instagram-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(225, 48, 108, 0.4);
+            background: #C13584;
+        }
+
+        .instagram-icon {
+            font-size: 1.2rem;
+        }
+
+        /* ===== ANIMAÇÕES ===== */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        .bounce {
+            animation: bounce 0.6s;
+        }
+
+        /* ===== MELHORIAS PARA SMARTPHONE ===== */
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                border-radius: 16px;
+            }
+            
+            .modern-header {
+                padding: 20px 15px;
+            }
+            
+            .logo-text h1 {
+                font-size: 1.6rem;
+            }
+            
+            .logo {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .welcome-card {
+                padding: 15px;
+            }
+            
+            .content-section {
+                padding: 25px 15px;
+            }
+            
+            .about-card, .details-card {
+                padding: 20px 15px;
+            }
+            
+            .quiz-section {
+                padding: 15px 10px;
+            }
+            
+            .question {
+                padding: 15px;
+            }
+            
+            .question-text {
+                font-size: 1.1rem;
+            }
+            
+            .option {
+                padding: 14px 12px;
+            }
+            
+            .navigation {
+                flex-direction: column;
+            }
+            
+            button {
+                width: 100%;
+            }
+            
+            .results {
+                padding: 25px 15px;
+            }
+            
+            .score {
+                font-size: 3rem;
+            }
+        }
+
+        /* ===== MELHORIAS PARA TABLETS ===== */
+        @media (min-width: 768px) {
+            .container {
+                max-width: 700px;
+            }
+            
+            .logo-container {
+                flex-direction: row;
+                text-align: left;
+            }
+            
+            .logo-text {
+                text-align: left;
+            }
+            
+            .features {
+                flex-direction: row;
+                max-width: 100%;
+            }
+            
+            .performance {
+                flex-direction: row;
+            }
+            
+            .navigation {
+                flex-direction: row;
+            }
+            
+            .instagram-section {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+
+        /* ===== MELHORIAS PARA DESKTOP ===== */
+        @media (min-width: 992px) {
+            .container {
+                max-width: 900px;
+            }
+            
+            .content-section {
+                grid-template-columns: 1fr 1fr;
+                display: grid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container fade-in">
+        <!-- HEADER MODERNO -->
+        <header class="modern-header">
+            <div class="header-bg"></div>
+            <div class="header-content">
+                <div class="logo-container">
+                    <div class="logo">
+                        <img src="https://i.ibb.co/9mLXgx7k/logo.png" alt="Logo EBD Fiel" class="logo-img" id="logo-img">
+                        <div class="logo-fallback" id="logo-fallback" style="display: none;">
+                            <i class="fas fa-book-bible"></i>
+                        </div>
+                    </div>
+                    <div class="logo-text">
+                        <h1>QUIZ DA EBD Fiel</h1>
+                        <div class="subtitle">Lição 02: Josué - Aprendendo a Servir com Fidelidade</div>
+                    </div>
+                </div>
+                
+                <div class="welcome-card">
+                    <h2><i class="fas fa-hands"></i> Bem-vindo ao Quiz da EBD Fiel!</h2>
+                    <p>Descubra a trajetória de Josué como servo fiel de Moisés e como ele se tornou o grande líder que conduziu Israel à Terra Prometida.</p>
+                </div>
+
+                <div class="cta-section">
+                    <button class="start-btn" id="start-btn">
+                        <i class="fas fa-play"></i> Iniciar Quiz
+                    </button>
+                    
+                    <div class="features">
+                        <div class="feature">
+                            <i class="fas fa-star" style="color: #4cc9f0;"></i>
+                            <span>15 Perguntas</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle" style="color: #f8961e;"></i>
+                            <span>Feedback Imediato</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-graduation-cap" style="color: #f94144;"></i>
+                            <span>Aprenda com a Bíblia</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <!-- SEÇÃO DE CONTEÚDO -->
+        <section class="content-section">
+            <div class="about-card">
+                <h2 class="card-title"><i class="fas fa-info-circle"></i> Sobre Esta Lição</h2>
+                <div class="card-content">
+                    <p>Nesta lição, estudaremos a vida de Josué, que começou como servo de Moisés e se tornou o grande líder que conduziu Israel à Terra Prometida.</p>
+                    <p>José nos ensina sobre fidelidade, excelência no serviço e preparação para grandes responsabilidades através do serviço humilde.</p>
+                    <p><span class="highlight">Princípios de liderança servidora</span> que continuam relevantes para líderes e servos de Deus hoje.</p>
+                </div>
+            </div>
+            
+            <div class="details-card">
+                <h2 class="card-title"><i class="fas fa-book-open"></i> O Que Você Vai Aprender</h2>
+                <div class="card-content">
+                    <ul>
+                        <li><i class="fas fa-check"></i> O processo de preparação de Josué</li>
+                        <li><i class="fas fa-check"></i> A importância da fidelidade nas pequenas coisas</li>
+                        <li><i class="fas fa-check"></i> Como servir com excelência</li>
+                        <li><i class="fas fa-check"></i> A transição de servo para líder</li>
+                        <li><i class="fas fa-check"></i> Lições de dependência de Deus</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- SEÇÃO DO QUIZ (com número de perguntas) -->
+        <div class="quiz-section" id="quiz-section">
+            <div class="progress-container">
+                <div class="progress-header">
+                    <div class="progress-text" id="progress-text">Pergunta 1 de 15</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress" id="quiz-progress"></div>
+                </div>
+            </div>
+            
+            <div class="quiz-container" id="quiz-container">
+                <!-- Perguntas serão inseridas aqui pelo JavaScript -->
+            </div>
+            
+            <div class="navigation">
+                <button id="prev-btn" disabled>
+                    <i class="fas fa-arrow-left"></i> Anterior
+                </button>
+                <button id="next-btn" class="btn-next">
+                    Próxima <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- SEÇÃO DE RESULTADOS -->
+        <div class="results" id="results">
+            <div class="results-header">
+                <h2><i class="fas fa-trophy"></i> Resultado Final</h2>
+            </div>
+            <div class="score" id="score">0/0</div>
+            
+            <div class="performance" id="performance">
+                <div class="performance-item">
+                    <div class="performance-value performance-easy" id="correct-easy">0</div>
+                    <div>Fáceis</div>
+                </div>
+                <div class="performance-item">
+                    <div class="performance-value performance-medium" id="correct-medium">0</div>
+                    <div>Médias</div>
+                </div>
+                <div class="performance-item">
+                    <div class="performance-value performance-hard" id="correct-hard">0</div>
+                    <div>Difíceis</div>
+                </div>
+            </div>
+            
+            <div class="message" id="message"></div>
+            
+            <button id="restart-btn" style="background: var(--success);">
+                <i class="fas fa-redo"></i> Fazer Quiz Novamente
+            </button>
+        </div>
+
+        <!-- Informações da Igreja e Instagram -->
+        <div class="church-info">
+            <div class="church-name" id="church-name">EBD FIEL</div>
+            <div class="church-location" id="church-location">FIEL A PALAVRA</div>
+            
+            <div class="instagram-section">
+                <div class="instagram-text">Curta nossa página no Instagram:</div>
+                <a href="https://www.instagram.com/ebdfiel" target="_blank" class="instagram-link">
+                    <i class="fab fa-instagram instagram-icon"></i>
+                    @ebdfiel
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // =============================================
+        // CONFIGURAÇÕES PERSONALIZÁVEIS
+        // =============================================
+        
+        // 1. CONFIGURAÇÃO DA LOGO
+        const logoConfig = {
+            imageUrl: "https://i.ibb.co/9mLXgx7k/logo.png",
+            fallbackText: "EBD"
+        };
+
+        // 2. INFORMAÇÕES DA IGREJA
+        const churchInfo = {
+            name: "EBD FIEL",
+            location: "FIEL A PALAVRA"
+        };
+
+        // 3. CONFIGURAÇÕES DO QUIZ
+        const quizConfig = {
+            title: "Lição 02: Josué - Aprendendo a Servir com Fidelidade",
+            welcomeMessage: "Descubra a trajetória de Josué como servo fiel de Moisés e como ele se tornou o grande líder que conduziu Israel à Terra Prometida.",
+            theme: "Josué e seu processo de preparação",
+            objective: "Aprender sobre fidelidade, excelência no serviço e preparação para a liderança"
+        };
+
+        // =============================================
+        // BANCO DE PERGUNTAS - LIÇÃO 02: JOSUÉ
+        // =============================================
+        
+        const allQuestions = [
+            // PERGUNTAS FÁCEIS (5)
+            {
+                question: "Qual era o nome original de Josué antes de Moisés mudar seu nome?",
+                options: [
+                    "Oséias",
+                    "Calebe", 
+                    "Num",
+                    "Jefté"
+                ],
+                correct: 0,
+                explanation: "Josué era originalmente chamado de Oséias, que significa 'salvação'. Moisés mudou seu nome para Josué, que significa 'Jeová salva'.",
+                difficulty: "easy"
+            },
+            {
+                question: "Qual era a tribo de Josué?",
+                options: [
+                    "Judá",
+                    "Levi", 
+                    "Efraim",
+                    "Benjamim"
+                ],
+                correct: 2,
+                explanation: "Josué era da tribo de Efraim, filho de Num. Ele foi escolhido como representante de sua tribo entre os 12 espias.",
+                difficulty: "easy"
+            },
+            {
+                question: "Qual foi o primeiro grande desafio militar que Josué enfrentou como líder de Israel?",
+                options: [
+                    "A conquista de Jericó",
+                    "A batalha contra os amalequitas", 
+                    "A travessia do Jordão",
+                    "A conquista de Ai"
+                ],
+                correct: 1,
+                explanation: "O primeiro grande desafio militar de Josué foi a batalha contra os amalequitas em Refidim, onde ele comandou o exército israelita enquanto Moisés orava no monte.",
+                difficulty: "easy"
+            },
+            {
+                question: "Onde Josué servia como auxiliar de Moisés antes de se tornar líder?",
+                options: [
+                    "No palácio do Faraó",
+                    "No Tabernáculo", 
+                    "No acampamento israelita",
+                    "No monte Sinai"
+                ],
+                correct: 1,
+                explanation: "Josué servia como auxiliar de Moisés no Tabernáculo, demonstrando sua fidelidade e proximidade com Deus desde cedo.",
+                difficulty: "easy"
+            },
+            {
+                question: "Quantos espias Josué enviou para Jericó antes da conquista?",
+                options: [
+                    "2 espias",
+                    "12 espias", 
+                    "10 espias",
+                    "Nenhum espião"
+                ],
+                correct: 0,
+                explanation: "Josué enviou apenas 2 espias para Jericó, demonstrando sabedoria e estratégia diferente da missão anterior com 12 espias.",
+                difficulty: "easy"
+            },
+            
+            // PERGUNTAS MÉDIAS (5)
+            {
+                question: "Qual foi a principal característica que Josué demonstrou como servo de Moisés?",
+                options: [
+                    "Riqueza",
+                    "Fidelidade", 
+                    "Eloquência",
+                    "Idade avançada"
+                ],
+                correct: 1,
+                explanation: "Josué demonstrou extraordinária fidelidade como servo de Moisés, acompanhando-o em momentos cruciais e aprendendo com seu líder.",
+                difficulty: "medium"
+            },
+            {
+                question: "O que Deus disse repetidamente a Josué para encorajá-lo como novo líder?",
+                options: [
+                    "Sê rico e poderoso",
+                    "Sê forte e corajoso", 
+                    "Sê sábio e eloquente",
+                    "Sê humilde e paciente"
+                ],
+                correct: 1,
+                explanation: "Deus repetidamente encorajou Josué dizendo 'Sê forte e corajoso', enfatizando a necessidade de confiança no Senhor para a grande tarefa que tinha pela frente.",
+                difficulty: "medium"
+            },
+            {
+                question: "Como Josué reagiu ao relatório dos 10 espias que desencorajaram a entrada em Canaã?",
+                options: [
+                    "Concordou com eles",
+                    "Ficou em silêncio", 
+                    "Discordou veementemente com Calebe",
+                    "Não estava presente"
+                ],
+                correct: 2,
+                explanation: "Josué, juntamente com Calebe, discordou veementemente do relatório negativo dos outros 10 espias, demonstrando fé em Deus e coragem.",
+                difficulty: "medium"
+            },
+            {
+                question: "Qual foi a condição fundamental para o sucesso de Josué como líder?",
+                options: [
+                    "Ter um grande exército",
+                    "Obedecer à lei de Deus", 
+                    "Ser mais velho que Moisés",
+                    "Conhecer toda a terra"
+                ],
+                correct: 1,
+                explanation: "Deus deixou claro que o sucesso de Josué dependia da obediência à Lei e da meditação nela dia e noite, não de estratégias humanas.",
+                difficulty: "medium"
+            },
+            {
+                question: "O que demonstra que Josué tinha um relacionamento íntimo com Deus?",
+                options: [
+                    "Sua riqueza material",
+                    "Sua permanência no Tabernáculo", 
+                    "Sua eloquência ao falar",
+                    "Sua aparência física"
+                ],
+                correct: 1,
+                explanation: "A Bíblia menciona que Josué não se apartava do Tabernáculo, demonstrando seu desejo de estar na presença de Deus e cultivar intimidade com Ele.",
+                difficulty: "medium"
+            },
+            
+            // PERGUNTAS DIFÍCEIS (5)
+            {
+                question: "Qual lição importante Josué aprendeu com a derrota em Ai?",
+                options: [
+                    "Que precisava de mais soldados",
+                    "Que a desobediência traz consequências", 
+                    "Que deveria usar estratégias diferentes",
+                    "Que os cananeus eram muito fortes"
+                ],
+                correct: 1,
+                explanation: "A derrota em Ai ensinou a Josué que a desobediência (o pecado de Acã) traz consequências graves, mesmo para todo o povo, e que a santidade é fundamental para o sucesso.",
+                difficulty: "hard"
+            },
+            {
+                question: "Como o caráter de Josué se contrastava com o de Moisés?",
+                options: [
+                    "Josué era mais eloquente",
+                    "Josué era mais velho", 
+                    "Josué era mais militar e menos mediador",
+                    "Josué era mais intelectual"
+                ],
+                correct: 2,
+                explanation: "Enquanto Moisés era um líder mediador e legislador, Josué demonstrou um perfil mais militar e executivo, focando na conquista e estabelecimento da nação em Canaã.",
+                difficulty: "hard"
+            },
+            {
+                question: "Qual princípio de liderança podemos aprender da transição de Moisés para Josué?",
+                options: [
+                    "Liderança é hereditária",
+                    "Preparação de sucessores é essencial", 
+                    "Só idosos podem liderar",
+                    "Líderes não precisam de ajuda"
+                ],
+                correct: 1,
+                explanation: "A transição cuidadosa de Moisés para Josué ensina a importância vital da preparação de sucessores, investindo tempo e confiando responsabilidades progressivas.",
+                difficulty: "hard"
+            },
+            {
+                question: "O que a expressão 'Josué, filho de Num, servidor de Moisés' revela sobre sua humildade?",
+                options: [
+                    "Que ele era rico",
+                    "Que ele se considerava inferior", 
+                    "Que mesmo como líder mantinha identidade de servo",
+                    "Que não queria ser líder"
+                ],
+                correct: 2,
+                explanation: "Mesmo após se tornar o grande líder de Israel, Josué continuou sendo identificado como 'servidor de Moisés', demonstrando humildade e reconhecimento de seu processo de preparação.",
+                difficulty: "hard"
+            },
+            {
+                question: "Qual foi o legado duradouro de Josué para as gerações futuras de Israel?",
+                options: [
+                    "Um império rico",
+                    "Um sistema de escrita", 
+                    "Um exemplo de fidelidade e conquista pela fé",
+                    "Um templo suntuoso"
+                ],
+                correct: 2,
+                explanation: "Josué deixou como legado um exemplo poderoso de fidelidade a Deus e de conquista pela fé, estabelecendo Israel na Terra Prometida e inspirando gerações futuras.",
+                difficulty: "hard"
+            }
+        ];
+
+        // =============================================
+        // CÓDIGO DO QUIZ - ATUALIZADO COM SCROLL MOBILE
+        // =============================================
+
+        // Variáveis globais
+        let currentQuestions = [];
+        let currentQuestionIndex = 0;
+        let userAnswers = [];
+        let score = 0;
+        let correctByDifficulty = { easy: 0, medium: 0, hard: 0 };
+        let answerSelected = false;
+        let answeredQuestions = new Set();
+
+        // Elementos DOM
+        const startBtn = document.getElementById('start-btn');
+        const quizSection = document.getElementById('quiz-section');
+        const quizContainer = document.getElementById('quiz-container');
+        const resultsSection = document.getElementById('results');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const restartBtn = document.getElementById('restart-btn');
+        const scoreElement = document.getElementById('score');
+        const messageElement = document.getElementById('message');
+        const progressBar = document.getElementById('quiz-progress');
+        const progressText = document.getElementById('progress-text');
+        const logoImg = document.getElementById('logo-img');
+        const logoFallback = document.getElementById('logo-fallback');
+        const churchNameEl = document.getElementById('church-name');
+        const churchLocationEl = document.getElementById('church-location');
+        const correctEasyEl = document.getElementById('correct-easy');
+        const correctMediumEl = document.getElementById('correct-medium');
+        const correctHardEl = document.getElementById('correct-hard');
+
+        // Função para embaralhar array (Fisher-Yates)
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        // Função para mostrar fallback se a logo não carregar
+        function showLogoFallback() {
+            logoImg.style.display = 'none';
+            logoFallback.style.display = 'flex';
+        }
+
+        // Função para rolar a página para o topo - OTIMIZADA PARA MOBILE
+        function scrollToTop() {
+            // Método principal para mobile
+            if ('scrollBehavior' in document.documentElement.style) {
+                // Navegadores modernos
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            } else {
+                // Fallback para navegadores antigos
+                const scrollDuration = 300;
+                const scrollStep = -window.scrollY / (scrollDuration / 15);
+                
+                const scrollInterval = setInterval(function() {
+                    if (window.scrollY !== 0) {
+                        window.scrollBy(0, scrollStep);
+                    } else {
+                        clearInterval(scrollInterval);
+                    }
+                }, 15);
+            }
+            
+            // Métodos alternativos para garantir funcionamento
+            document.documentElement.scrollTop = 0;
+            document.body.scrollTop = 0;
+            
+            // Forçar scroll para elementos específicos
+            setTimeout(function() {
+                document.querySelector('.container').scrollIntoView({ behavior: 'smooth' });
+            }, 50);
+        }
+
+        // Detectar se é dispositivo móvel
+        function isMobileDevice() {
+            return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+        }
+
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', function() {
+            // Configurar informações da igreja
+            setupChurchInfo();
+            
+            // Configurar event listeners
+            startBtn.addEventListener('click', startQuiz);
+            prevBtn.addEventListener('click', goToPreviousQuestion);
+            nextBtn.addEventListener('click', goToNextQuestion);
+            restartBtn.addEventListener('click', restartQuiz);
+
+            // Verificar se a logo carregou
+            logoImg.addEventListener('load', function() {
+                // Logo carregou com sucesso
+            });
+
+            logoImg.addEventListener('error', function() {
+                showLogoFallback();
+            });
+
+            // Verificar se a imagem carregou após 2 segundos
+            setTimeout(function() {
+                if (logoImg.naturalHeight === 0) {
+                    showLogoFallback();
+                }
+            }, 2000);
+        });
+
+        function setupChurchInfo() {
+            churchNameEl.textContent = churchInfo.name;
+            churchLocationEl.textContent = churchInfo.location;
+        }
+
+        function startQuiz() {
+            // Embaralhar todas as perguntas
+            currentQuestions = shuffleArray([...allQuestions]);
+            currentQuestionIndex = 0;
+            userAnswers = new Array(currentQuestions.length).fill(-1);
+            score = 0;
+            correctByDifficulty = { easy: 0, medium: 0, hard: 0 };
+            answerSelected = false;
+            answeredQuestions.clear();
+            
+            // Mostrar seção do quiz
+            quizSection.style.display = 'block';
+            document.querySelector('.modern-header').style.padding = '25px 20px';
+            document.querySelector('.content-section').style.display = 'none';
+            
+            // Rolar para o topo da página - TIMING OTIMIZADO PARA MOBILE
+            if (isMobileDevice()) {
+                // Para mobile: scroll imediato primeiro, depois suave
+                window.scrollTo(0, 0);
+                setTimeout(function() {
+                    scrollToTop();
+                    showCurrentQuestion();
+                }, 100);
+            } else {
+                // Para desktop: scroll suave
+                setTimeout(function() {
+                    scrollToTop();
+                    showCurrentQuestion();
+                }, 50);
+            }
+        }
+
+        function showCurrentQuestion() {
+            const question = currentQuestions[currentQuestionIndex];
+            const difficultyClass = `difficulty-${question.difficulty}`;
+            const difficultyText = question.difficulty === 'easy' ? 'Fácil' : 
+                                 question.difficulty === 'medium' ? 'Médio' : 'Difícil';
+            
+            const isAnswered = answeredQuestions.has(currentQuestionIndex);
+            
+            let optionsHTML = '';
+            question.options.forEach((option, index) => {
+                const isSelected = userAnswers[currentQuestionIndex] === index;
+                const isCorrect = index === question.correct;
+                let optionClass = 'option';
+                
+                if (isAnswered) {
+                    optionClass += ' locked';
+                }
+                
+                if (isSelected) {
+                    optionClass += isCorrect ? ' selected correct' : ' selected incorrect';
+                }
+                
+                const feedbackIcon = isSelected ? 
+                    (isCorrect ? '<i class="fas fa-check feedback-icon"></i>' : '<i class="fas fa-times feedback-icon"></i>') : 
+                    '';
+                
+                optionsHTML += `
+                    <div class="${optionClass}" data-option="${index}" data-correct="${isCorrect}">
+                        <span class="option-letter">${String.fromCharCode(65 + index)}</span>
+                        ${option}
+                        ${feedbackIcon}
+                    </div>
+                `;
+            });
+            
+            quizContainer.innerHTML = `
+                <div class="question fade-in">
+                    <div class="question-header">
+                        <div class="question-text">${question.question}</div>
+                        <div class="question-difficulty ${difficultyClass}">
+                            ${difficultyText}
+                        </div>
+                    </div>
+                    <div class="options">
+                        ${optionsHTML}
+                    </div>
+                </div>
+            `;
+            
+            // Adicionar event listeners para as opções
+            addOptionEventListeners();
+            
+            updateNavigation();
+            updateProgressBar();
+            updateProgressText();
+            answerSelected = isAnswered;
+        }
+
+        // Função para adicionar event listeners
+        function addOptionEventListeners() {
+            const options = quizContainer.querySelectorAll('.option');
+            options.forEach(option => {
+                if (!option.classList.contains('locked')) {
+                    option.addEventListener('click', function() {
+                        if (!answerSelected) {
+                            selectAnswer(parseInt(this.dataset.option));
+                        }
+                    });
+                }
+            });
+        }
+
+        function selectAnswer(answerIndex) {
+            userAnswers[currentQuestionIndex] = answerIndex;
+            answerSelected = true;
+            answeredQuestions.add(currentQuestionIndex);
+            
+            const question = currentQuestions[currentQuestionIndex];
+            const isCorrect = answerIndex === question.correct;
+            
+            // Atualizar a pergunta para mostrar o feedback
+            showCurrentQuestion();
+            
+            // Se a resposta estiver errada, mostrar a correta após um breve delay
+            if (!isCorrect) {
+                setTimeout(() => {
+                    const correctOption = quizContainer.querySelector(`.option[data-correct="true"]`);
+                    if (correctOption) {
+                        correctOption.classList.add('correct-answer');
+                        correctOption.classList.add('bounce');
+                    }
+                }, 500);
+            }
+        }
+
+        function updateNavigation() {
+            prevBtn.disabled = currentQuestionIndex === 0;
+            
+            if (currentQuestionIndex === currentQuestions.length - 1) {
+                nextBtn.innerHTML = 'Finalizar <i class="fas fa-flag-checkered"></i>';
+            } else {
+                nextBtn.innerHTML = 'Próxima <i class="fas fa-arrow-right"></i>';
+            }
+            
+            nextBtn.disabled = !answerSelected;
+        }
+
+        function updateProgressBar() {
+            const progress = ((currentQuestionIndex + 1) / currentQuestions.length) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+
+        function updateProgressText() {
+            progressText.textContent = `Pergunta ${currentQuestionIndex + 1} de ${currentQuestions.length}`;
+        }
+
+        function goToNextQuestion() {
+            if (currentQuestionIndex < currentQuestions.length - 1) {
+                currentQuestionIndex++;
+                answerSelected = answeredQuestions.has(currentQuestionIndex);
+                showCurrentQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function goToPreviousQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                answerSelected = answeredQuestions.has(currentQuestionIndex);
+                showCurrentQuestion();
+            }
+        }
+
+        function showResults() {
+            score = 0;
+            correctByDifficulty = { easy: 0, medium: 0, hard: 0 };
+            
+            currentQuestions.forEach((question, index) => {
+                if (userAnswers[index] === question.correct) {
+                    score++;
+                    correctByDifficulty[question.difficulty]++;
+                }
+            });
+            
+            const percentage = (score / currentQuestions.length) * 100;
+            let message = '';
+            let icon = '';
+            
+            if (percentage >= 90) {
+                message = '🎉 Excelente! Você demonstrou grande conhecimento sobre Josué e sua jornada de fidelidade!';
+                icon = '<i class="fas fa-crown fa-2x" style="color: #f39c12;"></i>';
+            } else if (percentage >= 70) {
+                message = '👏 Muito bom! Você compreendeu bem a lição sobre fidelidade e preparação para a liderança.';
+                icon = '<i class="fas fa-trophy fa-2x" style="color: #3498db;"></i>';
+            } else if (percentage >= 50) {
+                message = '👍 Bom trabalho! Continue estudando e aprendendo sobre os heróis da fé.';
+                icon = '<i class="fas fa-star fa-2x" style="color: #27ae60;"></i>';
+            } else {
+                message = '💡 Estude um pouco mais e tente novamente! Cada lição traz ensinamentos valiosos para nossa vida.';
+                icon = '<i class="fas fa-book fa-2x" style="color: #e74c3c;"></i>';
+            }
+            
+            scoreElement.textContent = `${score}/${currentQuestions.length}`;
+            correctEasyEl.textContent = correctByDifficulty.easy;
+            correctMediumEl.textContent = correctByDifficulty.medium;
+            correctHardEl.textContent = correctByDifficulty.hard;
+            
+            messageElement.innerHTML = `${icon}<div style="margin-top: 15px;">${message}</div>`;
+            
+            quizSection.style.display = 'none';
+            resultsSection.style.display = 'block';
+            
+            // Rolar para o topo ao mostrar resultados
+            setTimeout(scrollToTop, 300);
+        }
+
+        function restartQuiz() {
+            resultsSection.style.display = 'none';
+            quizSection.style.display = 'none';
+            document.querySelector('.modern-header').style.padding = '25px 20px';
+            document.querySelector('.content-section').style.display = 'flex';
+            
+            currentQuestions = [];
+            currentQuestionIndex = 0;
+            userAnswers = [];
+            score = 0;
+            correctByDifficulty = { easy: 0, medium: 0, hard: 0 };
+            answerSelected = false;
+            answeredQuestions.clear();
+            
+            // Rolar para o topo ao reiniciar
+            setTimeout(scrollToTop, 300);
+        }
+    </script>
+</body>
+</html>
